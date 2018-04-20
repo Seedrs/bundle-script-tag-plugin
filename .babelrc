@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "useBuiltins": true,
+        "targets": {
+          "node": "5.12.0"
+        }
+      }
+    ]
+  ]
+}
