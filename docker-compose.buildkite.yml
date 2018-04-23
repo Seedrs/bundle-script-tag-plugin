@@ -13,6 +13,7 @@ services:
     environment:
       - NPM_TOKEN
       - GITHUB_TOKEN
+      - BUILDKITE_JOB_ID
       - SSH_AUTH_SOCK=/ssh-agent
       - GIT_TERMINAL_PROMPT=0
       - GIT_ASKPASS=echo
