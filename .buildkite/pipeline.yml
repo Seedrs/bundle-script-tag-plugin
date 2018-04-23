@@ -13,7 +13,6 @@ steps:
     command: .buildkite/steps/publish.sh
     agents:
       queue: npm-packages
-    branches: master
     concurrency: 1
     concurrency_group: 'bundle-script-tag/publish'
     env:

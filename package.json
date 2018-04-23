@@ -1,16 +1,16 @@
 {
   "name": "@seedrs/bundle-script-tag-plugin",
-  "version": "0.0.0",
+  "version": "0.0.0-semantic-release",
   "description": "A webpack plugin that generates a script that loads your main bundle",
   "main": "lib/index.js",
-  "repository": "git@github.com:Seedrs/bundle-script-tag-plugin.git",
+  "repository": "https://github.com/Seedrs/bundle-script-tag-plugin.git",
   "author": "tech@seedrs.com",
   "license": "MIT",
   "private": false,
   "scripts": {
     "lint": "eslint ./src/*",
     "build": "babel src -d lib",
-    "semantic-release": "semantic-release -b HEAD"
+    "semantic-release": "semantic-release --no-ci -b fix-pipline-publish-step"
   },
   "devDependencies": {
     "@seedrs/eslint-config-seedrs-base": "^1.0.3",
