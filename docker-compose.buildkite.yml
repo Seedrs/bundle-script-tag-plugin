@@ -9,6 +9,8 @@ services:
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
+      - ${SSH_AUTH_SOCK}:/ssh-agent
     environment:
       - NPM_TOKEN
       - GITHUB_TOKEN
+      - SSH_AUTH_SOCK=/ssh-agent
