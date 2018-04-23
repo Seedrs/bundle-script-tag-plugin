@@ -10,7 +10,7 @@ steps:
   - wait
 
   - label: ':rocket: publish'
-    command: .buildkite/steps/build.sh
+    command: .buildkite/steps/publish.sh
     agents:
       queue: npm-packages
     branches: master
