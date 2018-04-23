@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "eslint ./src/*",
     "build": "babel src -d lib",
-    "semantic-release": "semantic-release --no-ci -b fix-pipline-publish-step"
+    "semantic-release": "semantic-release --no-ci -b $BUILDKITE_JOB_ID"
   },
   "devDependencies": {
     "@seedrs/eslint-config-seedrs-base": "^1.0.3",
