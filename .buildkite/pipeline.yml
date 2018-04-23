@@ -1,0 +1,22 @@
+steps:
+  - label: ':eslint: Lint'
+    command: .buildkite/steps/lint.sh
+    agents:
+      queue: npm-packages
+    env:
+      BUILDKITE_DOCKER_COMPOSE_FILE: docker-compose.buildkite.yml
+      BUILDKITE_DOCKER_COMPOSE_CONTAINER: bundle_script_tag_plugin
+
+  - wait
+
+  - label: ':rocket: publish'
+    command: .buildkite/steps/build.sh
+    agents:
+      queue: npm-packages
+    branches: master
+    concurrency: 1
+    concurrency_group: 'bundle-script-tag/publish'
+    env:
+      BUILDKITE_DOCKER_COMPOSE_FILE: docker-compose.buildkite.yml
+      BUILDKITE_DOCKER_COMPOSE_CONTAINER: bundle_script_tag_plugin
+
