@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A webpack plugin that generates a script that loads your main bundle",
   "main": "lib/index.js",
-  "repository": "https://github.com/Seedrs/bundle-script-tag-plugin.git",
+  "repository": "git@github.com:Seedrs/bundle-script-tag-plugin.git",
   "author": "tech@seedrs.com",
   "license": "MIT",
   "private": false,
