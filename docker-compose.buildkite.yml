@@ -1,0 +1,14 @@
+version: '3'
+services:
+  bundle_script_tag_plugin:
+    build:
+      context: .
+      args:
+        - NPM_TOKEN
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NPM_TOKEN
+      - GITHUB_TOKEN
