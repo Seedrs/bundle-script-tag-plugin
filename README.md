@@ -19,7 +19,7 @@ want to embed or make available externally.
 ```js
 module.exports = {
   plugins: [
-    new BundleScriptTagPlugin({
+    new BundleScriptTagPlugin.default({
       // The prefix name given to your generated script
       prefix: 'bundle',
       // Where the script should be output to
