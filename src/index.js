@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-class WebpackBundlePlugin {
+class BundleScriptTagPlugin {
   constructor (options) {
     this.opts = Object.assign({
       prefix: 'bundle',
@@ -29,10 +29,12 @@ class WebpackBundlePlugin {
     const appDir = fs.realpathSync(process.cwd());
     const outputDir = path.resolve(appDir, output);
 
-    compiler.plugin('after-emit',(compilation) => {
-      const { assets } = compilation.getStats().toJson();
+    const bundleScript = (stats) => {
+      const { assets } = stats.toJson();
 
-      assets.forEach((asset) => {
+      const jsFiles = assets.filter(({ name }) => name.match(/\.js?$/));
+
+      jsFiles.forEach((asset) => {
         const {
           name,
           chunkNames
@@ -50,8 +52,15 @@ class WebpackBundlePlugin {
           }
         });
       });
-    });
+    };
+
+    // Run
+    if (compiler.hooks) {
+      compiler.hooks.done.tap('BundleScriptTagPlugin', bundleScript);
+    } else {
+      compiler.plugin('done', bundleScript);
+    }
   }
 }
 
-export default WebpackBundlePlugin;
+export default BundleScriptTagPlugin;
