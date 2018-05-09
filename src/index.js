@@ -58,7 +58,7 @@ class BundleScriptTagPlugin {
     if (compiler.hooks) {
       compiler.hooks.done.tap('BundleScriptTagPlugin', bundleScript);
     } else {
-      compiler.plugin('done', stats => bundleScript(stats));
+      compiler.plugin('after-emit', compilation => bundleScript(compilation.getStats()));
     }
   }
 }
