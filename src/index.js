@@ -32,7 +32,7 @@ class BundleScriptTagPlugin {
     const bundleScript = (stats) => {
       const { assets } = stats.toJson();
 
-      const jsFiles = assets.filter(({ name }) => name.match(/\.js?$/));
+      const jsFiles = assets.filter(({ name }) => name.match(/\.js$/));
 
       jsFiles.forEach((asset) => {
         const {
@@ -58,7 +58,7 @@ class BundleScriptTagPlugin {
     if (compiler.hooks) {
       compiler.hooks.done.tap('BundleScriptTagPlugin', bundleScript);
     } else {
-      compiler.plugin('done', bundleScript);
+      compiler.plugin('done', stats => bundleScript(stats));
     }
   }
 }
